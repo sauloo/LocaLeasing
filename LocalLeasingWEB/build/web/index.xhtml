@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html">
+    <h:head>  
+    <title>Local Leasing 1.0</title>  
+    <style>
+        #loginform{
+            margin:0;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+        }
+        
+    </style>
+    </h:head>  
+        <h:body >  
+            <h:form id="loginform">  
+        <h:panelGrid id="panel" columns="2">  
+            <h:outputLabel for="login" value="Login:"/>  
+            <h:inputText id="login"  required="true" value="#{funcionarioBean.login}"  requiredMessage="Digite o login!"/>  
+               
+            <h:outputLabel for="senha" value="Senha:"/>  
+            <h:inputSecret id="senha"  required="true" value="#{funcionarioBean.senha}"  requiredMessage="Digite a senha!"/>  
+        </h:panelGrid>  
+          
+                <h:commandButton id="cmdLogin" value="Logar" action="#{funcionarioBean.logar()}"/>  
+     <h:messages/> 
+    </h:form>
+        
+</h:body>
+    
+       
+</html>
+

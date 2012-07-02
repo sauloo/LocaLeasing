@@ -1,0 +1,8 @@
+Manifest-Version: 1.0
+Ant-Version: Apache Ant 1.8.2
+Created-By: 1.7.0-b147 (Oracle Corporation)
+X-COMMENT: Main-Class will be added automatically by build
+Class-Path: Local_Leasing-ejb.jar postgresql-9.1-901.jdbc3.jar lib/pos
+ tgresql-9.1-901.jdbc3.jar 
+Main-Class: local_leasing_cliente.Main
+

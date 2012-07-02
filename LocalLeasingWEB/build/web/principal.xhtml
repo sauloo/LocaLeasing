@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:p="http://primefaces.prime.com.tr/ui"  
+      xmlns:h="http://java.sun.com/jsf/html">
+    <h:head>
+        <title>Leasing 1.0</title>   
+    </h:head>
+    <h:body>       
+            <h:form>
+        <p:menubar autoSubmenuDisplay="false">  
+        <p:submenu label="Cadastro" icon="ui-icon-document">  
+            <p:menuitem value="Cliente" url="cadastrocliente.xhtml"/>    
+            <p:separator />
+            <p:menuitem value="Equipamento" url="cadastroequipamento.xhtml" />  
+            <p:separator />
+            <p:menuitem value="Funcionario" url="cadastrofuncionario.xhtml" />    
+        </p:submenu>  
+  
+        <p:submenu label="Aluguel" icon="ui-icon-pencil">  
+            <p:menuitem value="Efetuar Aluguel" url="aluguel.xhtml" icon="ui-icon-arrowreturnthick-1-w" />  
+            <p:separator />
+            <p:menuitem value="Devolução" url="#" icon="ui-icon-arrowreturnthick-1-e" />
+            <p:separator />
+            <p:menuitem value="Lista Equipamentos" url="#" icon=""/>
+        </p:submenu>  
+  
+        <p:submenu label="Controle" icon="ui-icon-help">  
+            <p:menuitem value="Alterar Estoque" url="#" />
+            <p:separator />
+            <p:menuitem value="Produtos com defeito"/>
+        </p:submenu>  
+             <p:menuitem value="Sair" url="index.xhtml" icon="ui-icon-close" />   
+    </p:menubar>
+                </h:form>
+        <p:dialog  header="Cadastrar Cliente" widgetVar="dlCliente"  width="300" height="300">
+            
+        </p:dialog>           
+    </h:body>
+</html>

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"  
+      xmlns:f="http://java.sun.com/jsf/core" 
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui" 
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+    <h:head>
+        <title>Cadastrar Cliente</title>
+    </h:head>
+    <style>
+         
+        #panel{
+            margin:0;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+        }
+    </style>
+    <h:body>
+         <ui:include src="principal.xhtml"/>
+        <h:form>
+            <p:panel id="panel" header="Cadastrar novo cliente">
+                <h:panelGrid id="panelGr" cellpadding="3" columns="2">
+            <h:outputLabel for="tiNome" value="Nome: "/>
+            <p:inputText id="tiNome" value="#{clienteBean.nome}"  label="nome"/>
+            <h:outputLabel for="tiCpf" value="CPF: "/>
+            <p:inputMask id="tiCpf" value="#{clienteBean.cpf}" label="cpf" mask="999.999.999-99"/>
+            <h:outputLabel for="tiCnpj" value="CNPJ: "/>
+            <p:inputMask id="tiCnpj" value="#{clienteBean.cnpj}" label="nome" mask="99.999.99/9999-99"/>
+            <h:outputLabel for="tiRua" value="Rua: "/>
+            <p:inputText id="tiRua" value="#{clienteBean.rua}" label="rua"/>
+            <h:outputLabel for="tiNumero" value="Numero: "/>
+            <p:inputText id="tiBairro" value="#{clienteBean.bairro}" label="bairro"/>
+            <h:outputLabel for="tiBairro" value="Bairro: "/>
+            <p:inputText id="tiNumero" value="#{clienteBean.numero}" label="numero"/>
+            <h:outputLabel for="tiCidade" value="Cidade: "/>
+            <p:inputText id="tiCidade" value="#{clienteBean.cidade}" label="cidade"/>
+            <h:outputLabel for="tiEstado" value="Estado: "/>
+            <p:inputText id="tiEstado" value="#{clienteBean.estado}" label="estado"/>
+            <h:outputLabel for="tiCep" value="Cep: "/>
+            <p:inputMask id="tiCep" value="#{clienteBean.cep}" label="cep" mask="99999-999"/>
+            <h:outputLabel for="tiTelefone" value="Telefone: "/>
+            <p:inputMask id="tiTelefone" value="#{clienteBean.telefone}" label="telefone" mask="(99)9999-99-99"/>
+            <h:outputLabel for="tiCelular" value="Celular: "/>
+            <p:inputMask id="tiCelular" value="#{clienteBean.celular}" label="celular" mask="(99)9999-99-99"/>
+            <h:outputLabel for="tiEmail" value="E-mail: "/>
+            <p:inputText id="tiEmail" value="#{clienteBean.email}" label="email"/>
+            </h:panelGrid>
+             </p:panel>
+            <p:commandButton id="cmdSave" value="Salvar" onclick="confirmation.show();"/>
+           <p:confirmDialog id="dgSave" message="Deseja salvar registro?"  
+                             header="Cofirmar" modal="true" severity="alert" widgetVar="confirmation">
+                <p:commandButton id="cfYes" value="OK" oncomplete="confirmation.hide();msgSave.show()"  
+                           action="#{clienteBean.salvar()}" />  
+                <p:commandButton id="cfNo" value="Cancelar" onclick="confirmation.hide()" type="button" />   
+            </p:confirmDialog> 
+            
+            <p:dialog id="dgSaveconfirm" header="Confirmação" modal="true"  widgetVar="msgSave">  
+                <h:outputText value="#{clienteBean.message}" />  
+            </p:dialog>
+        </h:form>
+    </h:body>
+</html>

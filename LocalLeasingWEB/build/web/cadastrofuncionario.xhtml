@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html  xmlns="http://www.w3.org/1999/xhtml"  
+      xmlns:f="http://java.sun.com/jsf/core" 
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui" 
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+    <h:head>
+        <title>TODO supply a title</title>
+    </h:head>
+    <h:body>
+         <ui:include src="principal.xhtml"/>
+        <h:form id="formCad">
+            <p:panel id="panel" header="Cadastrar novo funcionario">
+                <h:panelGrid id="panelGr" cellpadding="3" columns="2">
+            <h:outputLabel for="tiNome" value="Nome: "/>
+            <p:inputText id="tiNome" value="#{funcionarioBean.nome}"  label="nome"/>
+            <h:outputLabel for="tiLogin" value="Login: "/>
+            <p:inputText id="tiLogin" value="#{funcionarioBean.login}" label="login" />
+            <h:outputLabel for="tiSenha" value="Senha: "/>
+            <h:inputSecret id="tiSenha" value="#{funcionarioBean.senha}" label="senha"/>
+            </h:panelGrid>
+             </p:panel>
+            <p:commandButton id="cmdSave" value="Salvar" onclick="confirmation.show();"/>
+           <p:confirmDialog id="dgSave" message="Deseja salvar registro?"  
+                             header="Cofirmar" modal="true" severity="alert" widgetVar="confirmation">
+                <p:commandButton id="cfYes" value="OK" oncomplete="confirmation.hide();msgSave.show()"  
+                           action="#{funcionarioBean.salvar()}" />  
+                <p:commandButton id="cfNo" value="Cancelar" onclick="confirmation.hide()" type="button" />   
+            </p:confirmDialog> 
+            
+            <p:dialog id="dgSaveconfirm" header="Confirmação" modal="true"  widgetVar="msgSave">  
+                <h:outputText value="#{funcionarioBean.message}" />  
+            </p:dialog>
+        </h:form>
+    </h:body>
+</html>

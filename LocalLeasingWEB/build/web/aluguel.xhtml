@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui" xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <h:head>
+        <title>Efetuar Aluguel</title>
+    </h:head>
+    
+    <h:body>
+         <ui:include src="principal.xhtml"/>
+         <h:form id="form">
+             <p:panel id="panel" header="Efetuar aluguel">
+                 <h:panelGrid id="panelG" cellpadding="3" columns="2" >
+                     <h:outputLabel value="Data Aluguel: "/>
+                     <p:calendar value="#{aluguelBean.data}" id="dataLoc" />
+                     <h:outputLabel for="tiValor" value="Valor: "/>
+                     <p:inputText id="tiValor" value="#{aluguelBean.valor}" label="valor"/>
+                     <h:outputLabel for="tiQtd" value="Quantidade: "/>
+                     <p:inputText id="tiQtd" value="#{aluguelBean.quantidade}"/>
+                    
+                     <div id="divCli">
+                          <h:outputLabel for="tiCliente" value="Cliente: "/>
+                     <p:inputText id="tiCliente"/>
+                     <p:commandButton id="cmdCid" value="Buscar Cliente" onclick="dgCli.show();"/>
+                 </div>
+                 </h:panelGrid>
+             </p:panel>
+             <p:dialog modal="true" header="Selecione um cliente" widgetVar="dgCli" >
+                 <p:dataTable id="basic" value="#{aluguelBean.listaCliente}" >  
+        <p:column id="modelHeader" >  
+            <f:facet name="header">  
+                    Nome  
+            </f:facet>  
+            <h:outputText id="out1" value="#{aluguelBean.cliente.nome}"  />  
+        </p:column>  
+  
+        <p:column>  
+            <f:facet name="header">  
+                    CPF  
+            </f:facet>  
+            <h:outputText id="out2" value="#{aluguelBean.cliente.cpf}" />  
+        </p:column>  
+  
+        <p:column>  
+            <f:facet name="header">  
+                    CNPJ  
+            </f:facet>  
+            <h:outputText id="out3" value="#{aluguelBean.cliente.cnpj}"/>  
+        </p:column>  
+    </p:dataTable>  
+                 
+             </p:dialog>
+             
+         </h:form>
+    </h:body>
+</html>
