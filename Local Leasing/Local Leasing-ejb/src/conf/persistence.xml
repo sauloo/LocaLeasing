@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.0" xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
+  <persistence-unit name="Local_Leasing-ejbPU" transaction-type="JTA">
+    <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+    <jta-data-source>bdpostgres</jta-data-source>
+    <class>br.com.edu.fasa.localleasing.domainmodel.bean.Aluguel</class>
+    <class>br.com.edu.fasa.localleasing.domainmodel.bean.Cliente</class>
+    <class>br.com.edu.fasa.localleasing.domainmodel.bean.Contato</class>
+    <class>br.com.edu.fasa.localleasing.domainmodel.bean.Endereco</class>
+    <class>br.com.edu.fasa.localleasing.domainmodel.bean.Equipamento</class>
+    <class>br.com.edu.fasa.localleasing.domainmodel.bean.Estoque</class>
+    <class>br.com.edu.fasa.localleasing.domainmodel.bean.Funcionario</class>
+    <exclude-unlisted-classes>false</exclude-unlisted-classes>
+    <properties>
+      <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/bd_local_leasing"/>
+      <property name="javax.persistence.jdbc.password" value="admin123"/>
+      <property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver"/>
+      <property name="javax.persistence.jdbc.user" value="postgres"/>
+      <property name="eclipselink.ddl-generation" value="create-tables"/>
+    </properties>
+  </persistence-unit>
+</persistence>
